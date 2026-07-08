@@ -662,8 +662,8 @@ body { margin: 0; }
 
 .site-mobile-summary {
   align-items: center;
-  background: rgba(252, 240, 221, .64);
-  border: 1px solid rgba(72, 62, 94, .16);
+  background: transparent;
+  border: 0;
   border-radius: 8px;
   color: #483E5E;
   cursor: pointer;
@@ -679,7 +679,6 @@ body { margin: 0; }
 .site-mobile-summary:hover,
 .site-mobile-summary:focus-visible {
   background: rgba(96, 143, 132, .12);
-  border-color: rgba(72, 62, 94, .24);
   box-shadow: 0 8px 20px -16px rgba(72, 62, 94, .45);
 }
 
