@@ -1712,6 +1712,10 @@ body { margin: 0; }
     grid-template-columns: 1fr;
   }
 
+  .program-card-grid[data-columns="4"] {
+    grid-template-columns: 1fr;
+  }
+
   .i-value-row {
     grid-template-columns: 1fr;
   }
