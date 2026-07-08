@@ -1704,9 +1704,12 @@ body { margin: 0; }
   }
 
   .i-card-grid,
-  .program-card-grid,
   .i-steps {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .program-card-grid {
+    grid-template-columns: 1fr;
   }
 
   .i-value-row {
@@ -2013,6 +2016,12 @@ body { margin: 0; }
   .draft-site .r-pad-lg {
     padding-top: 72px !important;
     padding-bottom: 72px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .draft-site .r-cards {
+    grid-template-columns: 1fr !important;
   }
 }
 
