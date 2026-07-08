@@ -1179,6 +1179,12 @@ body { margin: 0; }
   margin-top: auto;
 }
 
+@media (max-width: 1120px) {
+  .program-card-grid[data-columns="4"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .i-split {
   align-items: center;
   display: grid;
@@ -1976,11 +1982,14 @@ body { margin: 0; }
 
   .draft-site .r-grid2,
   .draft-site .r-grid3,
-  .draft-site .r-cards,
   .draft-site .r-progs,
   .draft-site .r-trimester,
   .draft-site .review-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  .draft-site .r-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   .draft-site .r-tech,
@@ -2011,6 +2020,7 @@ body { margin: 0; }
   .draft-site .r-tech,
   .draft-site .r-network,
   .draft-site .r-towns,
+  .draft-site .r-cards,
   .draft-site .r-trimester,
   .draft-site .r-steps,
   .draft-site .r-approach,
