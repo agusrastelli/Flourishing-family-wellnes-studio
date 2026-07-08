@@ -66,5 +66,27 @@ const navItems = [
       ))}
       <a href={bookHref} class={ctaClass}>Book a Visit</a>
     </div>
+    <details class="site-mobile-menu">
+      <summary class="site-mobile-summary">
+        <span>Menu</span>
+        <span class="site-mobile-lines" aria-hidden="true"><span></span><span></span></span>
+      </summary>
+      <div class="site-mobile-panel">
+        {navItems.map((item) => (
+          item.dropdown ? (
+            <details class="site-mobile-group">
+              <summary>{item.label}</summary>
+              <a href={item.href}>All {item.label}</a>
+              {item.dropdown.map((dropdownItem) => (
+                <a href={dropdownItem.href}>{dropdownItem.label}</a>
+              ))}
+            </details>
+          ) : (
+            <a class:list={[current === item.key && 'is-active']} href={item.href}>{item.label}</a>
+          )
+        ))}
+        <a class="site-mobile-cta" href={bookHref}>Book a Visit</a>
+      </div>
+    </details>
   </nav>
 </header>
