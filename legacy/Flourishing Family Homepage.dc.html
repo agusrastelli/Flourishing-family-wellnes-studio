@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #EBA040; color: #483E5E; }
+
+  /* ---- Tablet (≤900px) ---- */
+  @media (max-width: 900px) {
+    .r-hero, .r-split, .r-book { grid-template-columns: 1fr !important; gap: 44px !important; }
+    .r-split .r-portrait { max-width: 460px; }
+    .r-grid3 { grid-template-columns: repeat(2, 1fr) !important; }
+    .r-footer { grid-template-columns: 1fr 1fr !important; }
+    .r-sect { padding-left: 28px !important; padding-right: 28px !important; }
+    .r-pad-lg { padding-top: 72px !important; padding-bottom: 72px !important; }
+  }
+
+  /* ---- Phone (≤620px) ---- */
+  @media (max-width: 620px) {
+    .r-navlink { display: none !important; }
+    .r-hero { padding-top: 40px !important; padding-bottom: 52px !important; gap: 36px !important; }
+    .r-grid3 { grid-template-columns: 1fr !important; }
+    .r-stats { gap: 28px !important; }
+    .r-twocol { flex-wrap: wrap !important; gap: 26px !important; }
+    .r-twocol > div { flex: 1 1 140px !important; }
+    .r-footer { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .r-doctorhead { flex-direction: column; align-items: flex-start !important; }
+    .r-sect { padding-left: 22px !important; padding-right: 22px !important; }
+    .r-pad-lg { padding-top: 60px !important; padding-bottom: 60px !important; }
+    .r-navbar { padding-left: 20px !important; padding-right: 20px !important; }
+    .r-logo { height: 46px !important; }
+  }
+</style>
+</helmet>
+
+<div style="background:#FCF0DD; color:#194247; font-family:'Hanken Grotesk',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;">
+
+  <sc-if value="{{ announcementBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#483E5E; color:#FCF0DD; font-size:13.5px; letter-spacing:.01em; text-align:center; padding:9px 20px; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;">
+      <span style="opacity:.9;">Now welcoming new fertility, pregnancy &amp; family patients in Clark, NJ</span>
+      <a href="#book" style="color:#EBA040; font-weight:600; text-decoration:none; white-space:nowrap;">Book a visit&nbsp;→</a>
+    </div>
+  </sc-if>
+
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(252,240,221,.88); backdrop-filter:blur(10px); border-bottom:1px solid rgba(72,62,94,.12);">
+    <nav class="r-navbar" style="max-width:1220px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="#top" style="text-decoration:none; display:flex; align-items:center; line-height:1;">
+        <img class="r-logo" src="assets/logo-horizontal.jpg" alt="Flourishing Family Wellness Studio" style="height:58px; width:auto; display:block; mix-blend-mode:multiply;">
+      </a>
+      <div style="display:flex; align-items:center; gap:34px;">
+        <a class="r-navlink" href="#journeys" style="text-decoration:none; color:#483E5E; font-size:15px; font-weight:500;">Programs</a>
+        <a class="r-navlink" href="#services" style="text-decoration:none; color:#483E5E; font-size:15px; font-weight:500;">Services</a>
+        <a class="r-navlink" href="#doctors" style="text-decoration:none; color:#483E5E; font-size:15px; font-weight:500;">About</a>
+        <a class="r-navlink" href="#book" style="text-decoration:none; color:#483E5E; font-size:15px; font-weight:500;">Visit</a>
+        <a href="#book" style="text-decoration:none; background:#EBA040; color:#483E5E; font-weight:700; font-size:14.5px; padding:12px 22px; border-radius:999px; box-shadow:0 1px 0 rgba(72,62,94,.12);" style-hover="filter:brightness(1.04); transform:translateY(-1px);">Book a Visit</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" class="r-hero r-sect" style="max-width:1220px; margin:0 auto; padding:72px 32px 84px; display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:9px; font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#608F84; margin-bottom:38px;">
+        <span style="width:22px; height:1.5px; background:#608F84; display:inline-block;"></span>
+        Fertility · Pregnancy · Postpartum · Family
+      </div>
+      <h1 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(48px,6.4vw,92px); line-height:1.02; letter-spacing:-.02em; color:#483E5E; margin:0 0 26px;">Feel like<br>yourself again.</h1>
+      <p style="font-size:20px; line-height:1.65; color:#194247; max-width:30em; margin:0 0 36px; opacity:.92;">You know your body better than anyone keeps telling you. We’re the doctors who actually listen — through trying, expecting, recovering, and every ordinary day in between. One-on-one, start to finish.</p>
+      <div style="display:flex; align-items:center; gap:26px; flex-wrap:wrap;">
+        <a href="#start" style="text-decoration:none; background:#EBA040; color:#483E5E; font-weight:700; font-size:17px; padding:18px 38px; border-radius:999px; box-shadow:0 6px 22px rgba(235,160,64,.32);" style-hover="transform:translateY(-2px); box-shadow:0 10px 28px rgba(235,160,64,.4);">Start Here</a>
+        <a href="#book" style="text-decoration:none; color:#483E5E; font-weight:600; font-size:16px; border-bottom:2px solid rgba(72,62,94,.25); padding-bottom:3px;" style-hover="border-color:#EBA040;">or just book a visit&nbsp;→</a>
+      </div>
+      <div style="margin-top:40px; font-size:14.5px; color:#194247; opacity:.78; letter-spacing:.01em;">Trusted by Clark-area families since 2011.</div>
+    </div>
+
+    <div style="position:relative; aspect-ratio:4/5; border-radius:6px; overflow:hidden; background:#ece0d6; box-shadow:0 30px 60px -28px rgba(72,62,94,.4);">
+      <img src="assets/hero.jpg" alt="A Flourishing Family doctor talking through pelvic care with a patient in natural light" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
+    </div>
+  </section>
+
+  <!-- ===== THE JOURNEYS ===== -->
+  <section id="journeys" class="r-sect r-pad-lg" style="background:#E2DCE2; padding:96px 32px;">
+    <div style="max-width:1220px; margin:0 auto;">
+      <div style="max-width:34em; margin-bottom:56px;">
+        <div style="font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#608F84; margin-bottom:18px;">Wherever you are right now</div>
+        <h2 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(34px,4.4vw,56px); line-height:1.06; letter-spacing:-.015em; color:#483E5E; margin:0 0 20px;">Three journeys. One practice that grows with you.</h2>
+        <p style="font-size:18px; line-height:1.6; color:#194247; opacity:.88; margin:0;">Most families find us for one thing — and stay for the rest of life. That’s not an accident.</p>
+      </div>
+
+      <div class="r-grid3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+
+        <a href="#start" style="text-decoration:none; display:flex; flex-direction:column; background:#FCF0DD; border-radius:8px; overflow:hidden; box-shadow:0 10px 30px -16px rgba(72,62,94,.32), 0 2px 6px rgba(72,62,94,.08);" style-hover="transform:translateY(-4px); box-shadow:0 24px 44px -22px rgba(72,62,94,.5), 0 3px 8px rgba(72,62,94,.1);">
+          <div style="aspect-ratio:3/2; background:linear-gradient(140deg,#dde8e2,#ece0d6); position:relative;">
+            <img src="assets/card-fertility.jpg" alt="Doctor reviewing a pelvic X-ray with a patient" style="position:absolute; inset:14px; width:calc(100% - 28px); height:calc(100% - 28px); object-fit:cover; border-radius:3px; display:block;">
+            
+          </div>
+          <div style="padding:28px 28px 32px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#B7863E; margin-bottom:12px;">Fertility &amp; Preconception</div>
+            <h3 style="font-family:'Fraunces',serif; font-weight:400; font-size:25px; line-height:1.2; color:#483E5E; margin:0 0 12px;">Trying — and tired of “just relax.”</h3>
+            <p style="font-size:15.5px; line-height:1.6; color:#194247; opacity:.85; margin:0 0 18px;">You’ve been patient. You’ve been hopeful. What you haven’t had is someone building a real plan around your body. Acupuncture-led, with chiropractic and nutrition — so you’re preparing, not just waiting.</p>
+            <span style="font-size:15px; font-weight:600; color:#608F84;">Explore the journey&nbsp;→</span>
+          </div>
+        </a>
+
+        <a href="#start" style="text-decoration:none; display:flex; flex-direction:column; background:#FCF0DD; border-radius:8px; overflow:hidden; box-shadow:0 10px 30px -16px rgba(72,62,94,.32), 0 2px 6px rgba(72,62,94,.08);" style-hover="transform:translateY(-4px); box-shadow:0 24px 44px -22px rgba(72,62,94,.5), 0 3px 8px rgba(72,62,94,.1);">
+          <div style="aspect-ratio:3/2; background:linear-gradient(140deg,#f5e8d1,#e6dde2); position:relative;">
+            <img src="assets/card-pregnancy.jpg" alt="Hands resting on a pregnant belly during a chiropractic visit" style="position:absolute; inset:14px; width:calc(100% - 28px); height:calc(100% - 28px); object-fit:cover; border-radius:3px; display:block;">
+            
+          </div>
+          <div style="padding:28px 28px 32px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#B7863E; margin-bottom:12px;">Pregnancy Care</div>
+            <h3 style="font-family:'Fraunces',serif; font-weight:400; font-size:25px; line-height:1.2; color:#483E5E; margin:0 0 12px;">A pregnancy that feels more like yours.</h3>
+            <p style="font-size:15.5px; line-height:1.6; color:#194247; opacity:.85; margin:0 0 18px;">Sleep better. Move easier. Walk into birth feeling ready instead of bracing for it. Webster-certified care, acupuncture, and nutrition — on a timeline built around your due date, not a punch card.</p>
+            <span style="font-size:15px; font-weight:600; color:#608F84;">Explore the journey&nbsp;→</span>
+          </div>
+        </a>
+
+        <a href="#start" style="text-decoration:none; display:flex; flex-direction:column; background:#FCF0DD; border-radius:8px; overflow:hidden; box-shadow:0 10px 30px -16px rgba(72,62,94,.32), 0 2px 6px rgba(72,62,94,.08);" style-hover="transform:translateY(-4px); box-shadow:0 24px 44px -22px rgba(72,62,94,.5), 0 3px 8px rgba(72,62,94,.1);">
+          <div style="aspect-ratio:3/2; background:linear-gradient(140deg,#e6dde2,#dde8e2); position:relative;">
+            <img src="assets/card-family.jpg" alt="Doctor adjusting a smiling toddler in the office" style="position:absolute; inset:14px; width:calc(100% - 28px); height:calc(100% - 28px); object-fit:cover; border-radius:3px; display:block;">
+            
+          </div>
+          <div style="padding:28px 28px 32px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#B7863E; margin-bottom:12px;">Family Wellness</div>
+            <h3 style="font-family:'Fraunces',serif; font-weight:400; font-size:25px; line-height:1.2; color:#483E5E; margin:0 0 12px;">From first latch to first soccer season.</h3>
+            <p style="font-size:15.5px; line-height:1.6; color:#194247; opacity:.85; margin:0 0 18px;">It usually starts with one of you. Then the baby comes in, then your partner gives in — and suddenly the whole family has a place that knows them. Postpartum, pediatric, and whole-household care, all under one roof.</p>
+            <span style="font-size:15px; font-weight:600; color:#608F84;">Explore the journey&nbsp;→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY DIFFERENT ===== -->
+  <section id="services" class="r-split r-sect r-pad-lg" style="max-width:1220px; margin:0 auto; padding:104px 32px; display:grid; grid-template-columns:.92fr 1.08fr; gap:72px; align-items:center;">
+    <div class="r-portrait" style="position:relative; aspect-ratio:5/6; border-radius:6px; overflow:hidden; background:linear-gradient(155deg,#dde8e2 0%,#ece0d6 60%,#f5e8d1 100%); box-shadow:0 28px 56px -30px rgba(72,62,94,.42);">
+      <img src="assets/ila.jpg" alt="Dr. Ila adjusting a patient — unhurried, hands-on, present" style="position:absolute; inset:14px; width:calc(100% - 28px); height:calc(100% - 28px); object-fit:cover; border-radius:3px; display:block;">
+    </div>
+    <div>
+      <div style="font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#608F84; margin-bottom:20px;">What makes us different</div>
+      <h2 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(32px,4.1vw,52px); line-height:1.08; letter-spacing:-.015em; color:#483E5E; margin:0 0 26px;">It’s just you and a doctor. Every single visit.</h2>
+      <p style="font-size:18.5px; line-height:1.68; color:#194247; max-width:32em; margin:0 0 22px; opacity:.92;">No physician’s assistants. No students practicing on you. The doctor who meets you is the doctor who treats you — the one who learns your history, explains the why, and remembers it next time. As one patient put it, we’re “not just chiropractors — so much more.”</p>
+      <p style="font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:17px; line-height:1.5; color:#608F84; max-width:26em; margin:0 0 30px;">“If you get your tires rotated more often than your nervous system gets regulated, we should talk.”</p>
+      <div class="r-twocol" style="display:flex; gap:36px; flex-wrap:nowrap; padding-top:26px; border-top:1px solid rgba(72,62,94,.12);">
+        <div style="flex:1 1 0; min-width:0;">
+          <div style="font-family:'Fraunces',serif; font-size:34px; color:#483E5E; line-height:1;">Thorough</div>
+          <div style="font-size:14px; color:#608F84; font-weight:600; margin-top:8px; letter-spacing:.04em;">We measure, we track, we explain every step — so you’re never just told to trust us.</div>
+        </div>
+        <div style="flex:1 1 0; min-width:0;">
+          <div style="font-family:'Fraunces',serif; font-size:34px; color:#483E5E; line-height:1;">Patient</div>
+          <div style="font-size:14px; color:#608F84; font-weight:600; margin-top:8px; letter-spacing:.04em;">Real change is a relationship, not a single visit. We’re in it for the long run.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF BAND ===== -->
+  <section class="r-sect r-pad-lg" style="background:{{ proofBg }}; padding:104px 32px;">
+    <div style="max-width:960px; margin:0 auto; text-align:center;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="{{ proofAccent }}" stroke-width="1.4" style="opacity:.85; margin-bottom:30px;"><path d="M7 7h4v4c0 3-2 5-4 5M14 7h4v4c0 3-2 5-4 5"></path></svg>
+      <blockquote style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(30px,3.8vw,46px); line-height:1.22; letter-spacing:-.01em; color:{{ proofQuote }}; margin:0 0 30px;">They support you like family — and they’re the best chiropractor I’ve seen in twenty years.</blockquote>
+      <div style="font-size:14px; letter-spacing:.06em; color:{{ proofSub }}; font-weight:600;">—&nbsp;A Flourishing Family patient, Westfield</div>
+
+      <div class="r-stats" style="margin-top:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; border-top:1px solid rgba(252,240,221,.18); padding-top:48px;">
+        <div>
+          <div style="font-family:'Fraunces',serif; font-size:clamp(34px,4vw,52px); color:{{ proofAccent }}; line-height:1;">110K+</div>
+          <div style="font-size:14px; color:{{ proofSub }}; margin-top:12px; letter-spacing:.04em;">Adjustments given</div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif; font-size:clamp(34px,4vw,52px); color:{{ proofAccent }}; line-height:1;">2011</div>
+          <div style="font-size:14px; color:{{ proofSub }}; margin-top:12px; letter-spacing:.04em;">Caring for families since</div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif; font-size:clamp(34px,4vw,52px); color:{{ proofAccent }}; line-height:1;">1-on-1</div>
+          <div style="font-size:14px; color:{{ proofSub }}; margin-top:12px; letter-spacing:.04em;">Doctor-only, always</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEET THE DOCTORS ===== -->
+  <section id="doctors" class="r-sect r-pad-lg" style="max-width:1220px; margin:0 auto; padding:100px 32px;">
+    <div class="r-doctorhead" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:54px; flex-wrap:wrap;">
+      <div style="max-width:30em;">
+        <div style="font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#608F84; margin-bottom:18px;">Meet your doctors</div>
+        <h2 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(34px,4.4vw,56px); line-height:1.06; letter-spacing:-.015em; color:#483E5E; margin:0 0 18px;">The people you’ll<br>actually see.</h2>
+        <p style="font-size:17px; line-height:1.6; color:#194247; opacity:.88; margin:0;">Same faces every time. The doctor you meet on day one is the one who’s still with you a year later.</p>
+      </div>
+      <a href="#start" style="text-decoration:none; color:#483E5E; font-weight:600; font-size:16px; border-bottom:2px solid rgba(72,62,94,.25); padding-bottom:3px;" style-hover="border-color:#EBA040;">Read our story&nbsp;→</a>
+    </div>
+
+    <div class="r-grid3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+      <div style="display:flex; flex-direction:column;">
+        <div style="aspect-ratio:1/1; border-radius:8px; overflow:hidden; background:linear-gradient(150deg,#ece0d6,#dde8e2); position:relative;">
+          <img src="assets/doctor-shelley.jpg" alt="Dr. Shelley" style="position:absolute; inset:12px; width:calc(100% - 24px); height:calc(100% - 24px); object-fit:cover; object-position:center 25%; border-radius:4px; display:block;">
+        </div>
+        <h3 style="font-family:'Fraunces',serif; font-weight:500; font-size:23px; color:#483E5E; margin:22px 0 4px;">Dr. Shelley</h3>
+        <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#608F84; margin-bottom:12px;">Founder · Chiropractor</div>
+        <p style="font-size:15px; line-height:1.6; color:#194247; opacity:.85; margin:0;">Started Flourishing Family in 2010 to practice from a place of abundance — gentle, low-force care for the smallest patients and the tenderest stages.</p>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="aspect-ratio:1/1; border-radius:8px; overflow:hidden; background:linear-gradient(150deg,#f5e8d1,#e6dde2); position:relative;">
+          <img src="assets/doctor-ila.jpg" alt="Dr. Ila Clemente" style="position:absolute; inset:12px; width:calc(100% - 24px); height:calc(100% - 24px); object-fit:cover; object-position:center 25%; border-radius:4px; display:block;">
+        </div>
+        <h3 style="font-family:'Fraunces',serif; font-weight:500; font-size:23px; color:#483E5E; margin:22px 0 4px;">Dr. Ila Clemente</h3>
+        <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#608F84; margin-bottom:12px;">Chiropractor</div>
+        <p style="font-size:15px; line-height:1.6; color:#194247; opacity:.85; margin:0;">Joined in 2021 to reach more families. Perinatal and pediatric care — and the reason a lot of families found their way here.</p>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="aspect-ratio:1/1; border-radius:8px; overflow:hidden; background:linear-gradient(150deg,#dde8e2,#ece0d6); position:relative;">
+          <img src="assets/doctor-alex.jpg" alt="Dr. Alexandra" style="position:absolute; inset:12px; width:calc(100% - 24px); height:calc(100% - 24px); object-fit:cover; object-position:center 20%; border-radius:4px; display:block;">
+        </div>
+        <h3 style="font-family:'Fraunces',serif; font-weight:500; font-size:23px; color:#483E5E; margin:22px 0 4px;">Dr. Alexandra</h3>
+        <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#608F84; margin-bottom:12px;">Acupuncturist</div>
+        <p style="font-size:15px; line-height:1.6; color:#194247; opacity:.85; margin:0;">Completed the picture in 2025. Fertility and pregnancy acupuncture — the quiet, steadying half of the journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== START HERE ===== -->
+  <section id="start" class="r-sect r-pad-lg" style="background:#E2DCE2; padding:104px 32px;">
+    <div style="max-width:760px; margin:0 auto; text-align:center;">
+      <div style="font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#608F84; margin-bottom:22px;">Not sure where to begin?</div>
+      <h2 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(34px,4.6vw,58px); line-height:1.08; letter-spacing:-.015em; color:#483E5E; margin:0 0 26px;">Start with a conversation, not a commitment.</h2>
+      <p style="font-size:19px; line-height:1.65; color:#194247; opacity:.9; max-width:30em; margin:0 auto 40px;">Come tell us what’s going on — the achiness, the rough nights, the thing a few doctors already brushed off. We’ll be straight with you about whether we can help and what it would really take. No pressure, no hard sell. Just a plan that fits your life and a doctor who’ll remember your name next time you walk in.</p>
+      <a href="#book" style="text-decoration:none; background:#EBA040; color:#483E5E; font-weight:700; font-size:17px; padding:18px 40px; border-radius:999px; box-shadow:0 6px 22px rgba(235,160,64,.32); display:inline-block;" style-hover="transform:translateY(-2px); box-shadow:0 10px 28px rgba(235,160,64,.4);">Start Here</a>
+    </div>
+  </section>
+
+  <!-- ===== BOOK / CONTACT ===== -->
+  <section id="book" class="r-sect" style="background:#483E5E; color:#FCF0DD; padding:100px 32px 0;">
+    <div class="r-book" style="max-width:1220px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr; gap:64px; align-items:start; padding-bottom:88px;">
+      <div>
+        <h2 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(40px,5.2vw,72px); line-height:1.02; letter-spacing:-.02em; margin:0 0 26px; color:#FCF0DD;">Ready when<br>you are.</h2>
+        <p style="font-size:17px; line-height:1.65; color:#d6cfe0; margin:0 0 30px; max-width:30em;">Early mornings, evenings, and Saturdays — hours that fit real life. Every first visit is one-on-one with a doctor.</p>
+        <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+          <a href="#start" style="text-decoration:none; background:#EBA040; color:#483E5E; font-weight:700; font-size:17px; padding:18px 40px; border-radius:999px; display:inline-block; box-shadow:0 6px 22px rgba(235,160,64,.32);" style-hover="transform:translateY(-2px); box-shadow:0 10px 28px rgba(235,160,64,.45);">Start Here</a>
+          <a href="https://portal.sked.life" style="text-decoration:none; background:transparent; color:#FCF0DD; font-weight:700; font-size:17px; padding:17px 38px; border-radius:999px; display:inline-block; border:1.5px solid rgba(252,240,221,.45);" style-hover="border-color:#EBA040; color:#EBA040;">Book your first visit&nbsp;→</a>
+        </div>
+      </div>
+      <div class="r-footer" style="display:grid; grid-template-columns:1.1fr 1fr; gap:32px 28px; padding-top:8px;">
+        <div>
+          <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#608F84; margin-bottom:12px;">Navigation</div>
+          <div style="font-size:16px; line-height:1.85; color:#FCF0DD; display:flex; flex-direction:column;">
+            <a href="#top" style="color:#FCF0DD; text-decoration:none;" style-hover="color:#EBA040;">Homepage</a>
+            <a href="#journeys" style="color:#FCF0DD; text-decoration:none;" style-hover="color:#EBA040;">Programs</a>
+            <a href="#services" style="color:#FCF0DD; text-decoration:none;" style-hover="color:#EBA040;">Services</a>
+            <a href="#doctors" style="color:#FCF0DD; text-decoration:none;" style-hover="color:#EBA040;">About</a>
+            <a href="#book" style="color:#FCF0DD; text-decoration:none;" style-hover="color:#EBA040;">Book a Visit</a>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:32px;">
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#608F84; margin-bottom:12px;">Visit</div>
+            <div style="font-size:16px; line-height:1.6; color:#FCF0DD;">Clark, New Jersey<br><span style="color:#c9c2d4;">Serving Westfield, Scotch Plains, Cranford &amp; Clark</span></div>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#608F84; margin-bottom:12px;">Reach us</div>
+            <div style="font-size:16px; line-height:1.6; color:#FCF0DD;">myflourishingfamily.com<br><span style="color:#c9c2d4;">Mon–Fri by appointment</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(252,240,221,.16); padding:30px 0 40px; max-width:1220px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <span style="width:48px; height:48px; border-radius:50%; background:#FCF0DD; display:flex; align-items:center; justify-content:center; flex:none;"><img src="assets/logo-icon.jpg" alt="" style="width:48px; height:48px; border-radius:50%; display:block; mix-blend-mode:multiply;"></span>
+        <span style="display:flex; flex-direction:column; line-height:1;">
+          <span style="font-family:'Fraunces',serif; font-weight:500; font-size:20px; color:#FCF0DD;">Flourishing&nbsp;Family</span>
+          <span style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:#608F84; margin-top:5px; font-weight:600;">Wellness Studio · Clark, NJ</span>
+        </span>
+      </div>
+      <div style="font-size:13px; color:#c9c2d4;">Flourishing Family Wellness Studio · 68 Washington Street, Clark, NJ 07066 · (908) 653-0000</div>
+    </div>
+  </section>
+
+  <sc-if value="{{ stickyBookButton }}" hint-placeholder-val="{{ true }}">
+    <a href="#book" style="position:fixed; bottom:24px; right:24px; z-index:60; background:#EBA040; color:#483E5E; font-weight:700; font-size:15px; padding:15px 26px; border-radius:999px; text-decoration:none; box-shadow:0 10px 30px -6px rgba(72,62,94,.5);" style-hover="transform:translateY(-2px);">Book a Visit</a>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;announcementBar&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
+  &quot;stickyBookButton&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
+  &quot;testimonialTreatment&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Deep Plum&quot;, &quot;options&quot;: [&quot;Deep Plum&quot;, &quot;Sage Teal&quot;], &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const treatment = this.props.testimonialTreatment ?? 'Deep Plum';
+    const proof = treatment === 'Sage Teal'
+      ? { bg: '#608F84', accent: '#FCF0DD', sub: '#dceae5', quote: '#FCF0DD' }
+      : { bg: '#483E5E', accent: '#EBA040', sub: '#c9c2d4', quote: '#FCF0DD' };
+    return {
+      announcementBar: this.props.announcementBar ?? true,
+      stickyBookButton: this.props.stickyBookButton ?? true,
+      proofBg: proof.bg,
+      proofAccent: proof.accent,
+      proofSub: proof.sub,
+      proofQuote: proof.quote,
+    };
+  }
+}
+</script>
+</body>
+</html>

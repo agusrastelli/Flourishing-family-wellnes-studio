@@ -1,0 +1,64 @@
+---
+// import ReferenceProgramPage from '../components/ReferenceProgramPage.astro';
+// import ReferenceServicePage from '../components/ReferenceServicePage.astro';
+
+interface ProgramModule {
+  frontmatter: {
+    slug: string;
+    routeSlug: string;
+    order: number;
+    [key: string]: unknown;
+  };
+}
+
+interface ServiceModule {
+  frontmatter: {
+    slug: string;
+    routeSlug: string;
+    order: number;
+    [key: string]: unknown;
+  };
+}
+
+const programModules = import.meta.glob<ProgramModule>('../content/programs/*.md', {
+  eager: true,
+});
+
+const serviceModules = import.meta.glob<ServiceModule>('../content/services/*.md', {
+  eager: true,
+});
+
+const draftPrograms = Object.values(programModules)
+  .map((module) => module.frontmatter)
+  .sort((a, b) => a.order - b.order);
+
+const draftServices = Object.values(serviceModules)
+  .map((module) => module.frontmatter)
+  .sort((a, b) => a.order - b.order);
+
+export function getStaticPaths() {
+  const programPaths = draftPrograms.map((program) => ({
+    params: { slug: program.routeSlug },
+    props: {
+      pageType: 'program',
+      program,
+      relatedPrograms: draftPrograms.filter((item) => item.slug !== program.slug),
+    },
+  }));
+
+  const servicePaths = draftServices.map((service) => ({
+    params: { slug: service.routeSlug },
+    props: {
+      pageType: 'service',
+      service,
+    },
+  }));
+
+  return [...programPaths, ...servicePaths];
+}
+
+const { pageType, program, relatedPrograms, service } = Astro.props;
+---
+
+{pageType === 'program' && <ReferenceProgramPage program={program} relatedPrograms={relatedPrograms} linkMode="draft" />}
+{pageType === 'service' && <ReferenceServicePage {...service} />}

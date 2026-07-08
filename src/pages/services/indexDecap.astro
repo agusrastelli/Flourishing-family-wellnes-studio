@@ -1,0 +1,62 @@
+---
+import CardGrid from '../../components/CardGrid.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import InternalLayout from '../../layouts/InternalLayout.astro';
+import { services } from '../../data/services';
+import { bookingUrl } from '../../data/site';
+
+const cards = services.map((service) => ({
+  href: `/services/${service.slug}/`,
+  eyebrow: service.eyebrow,
+  title: service.listingTitle,
+  text: service.listingSummary,
+  image: service.listingImage,
+  imageAlt: service.listingImageAlt,
+}));
+---
+
+<InternalLayout title="Services" description="Chiropractic, acupuncture, nutrition, pediatric, postpartum, and sports care." current="services">
+  <PageHero
+    eyebrow="Services"
+    title="The how behind the programs."
+    text="Services are the tools. The plan is the point. Chiropractic, acupuncture, nutrition, pediatric care, and sports support are used in the combination that actually fits your body."
+    image="/assets/opt/ila.jpg"
+    imageAlt="Dr. Ila adjusting a patient"
+    primaryHref={bookingUrl}
+    primaryLabel="Book a Visit"
+    secondaryHref="/programs/"
+    secondaryLabel="Explore programs"
+  />
+
+  <section class="i-section-band">
+    <div class="i-sect i-pad">
+      <SectionHeader
+        eyebrow="Care options"
+        title="Specific enough to work. Simple enough to understand."
+        text="The goal is not to overwhelm you with technique names. It is to explain what we are doing, why it matters, and how it supports the outcome you came for."
+        maxWidth="42em"
+      />
+      <CardGrid cards={cards} />
+    </div>
+  </section>
+
+  <section class="i-sect i-pad i-split">
+    <div class="i-photo-frame">
+      <img src="/assets/opt/hero.jpg" alt="Doctor talking with a patient" />
+    </div>
+    <div class="i-text-block">
+      <p class="i-eyebrow">Our approach</p>
+      <h2>Thorough, measurable, reproducible, and still deeply human.</h2>
+      <p>
+        A first visit is not a quick crack and a shrug. We listen, observe, explain, and build care
+        around the person in front of us. The doctor who starts the conversation stays in the room.
+      </p>
+      <ul class="i-list">
+        <li>One-on-one visits with a doctor every time.</li>
+        <li>Plain-language explanations before care decisions.</li>
+        <li>Programs and services that can work together without feeling chaotic.</li>
+      </ul>
+    </div>
+  </section>
+</InternalLayout>

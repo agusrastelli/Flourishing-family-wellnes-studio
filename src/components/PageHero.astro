@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import cardFamilyImage from '../../assets/opt/card-family.jpg';
+import heroImage from '../../assets/opt/hero.jpg';
+import ilaImage from '../../assets/opt/ila.jpg';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  image?: string;
+  imageAlt?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  text,
+  image,
+  imageAlt = '',
+  primaryHref = '/resources/start-here/',
+  primaryLabel = 'Start Here',
+  secondaryHref = 'https://portal.sked.life',
+  secondaryLabel = 'Book a visit',
+} = Astro.props;
+
+const optimizedImages = {
+  '/assets/opt/card-family.jpg': cardFamilyImage,
+  '/assets/opt/hero.jpg': heroImage,
+  '/assets/opt/ila.jpg': ilaImage,
+};
+
+const optimizedImage = image ? optimizedImages[image as keyof typeof optimizedImages] : undefined;
+---
+
+<section class="i-hero i-sect">
+  <div class="i-hero-copy">
+    <p class="i-eyebrow"><span></span>{eyebrow}</p>
+    <h1>{title}</h1>
+    <p>{text}</p>
+    <div class="i-actions">
+      <a class="i-btn h-btn-primary" href={primaryHref}>{primaryLabel}</a>
+      <a class="i-link h-link-underline" href={secondaryHref}>{secondaryLabel}&nbsp;→</a>
+    </div>
+  </div>
+  {image && (
+    <div class="i-hero-image">
+      {optimizedImage ? (
+        <Image
+          src={optimizedImage}
+          alt={imageAlt}
+          width={780}
+          height={975}
+          widths={[390, 640, 780, 960, 1200]}
+          sizes="(max-width: 900px) calc(100vw - 56px), 46vw"
+          format="webp"
+          quality="high"
+          priority
+          loading="eager"
+          decoding="async"
+        />
+      ) : (
+        <Image
+          src={image}
+          alt={imageAlt}
+          inferSize
+          widths={[390, 640, 780, 960, 1200]}
+          sizes="(max-width: 900px) calc(100vw - 56px), 46vw"
+          format="webp"
+          quality="high"
+          priority
+          loading="eager"
+          decoding="async"
+        />
+      )}
+    </div>
+  )}
+</section>

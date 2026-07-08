@@ -1,0 +1,63 @@
+---
+import CardGrid from '../../components/CardGrid.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import InternalLayout from '../../layouts/InternalLayout.astro';
+
+const cards = [
+  {
+    href: '/resources/start-here/',
+    eyebrow: 'New patients',
+    title: 'Book Your First Visit',
+    text: 'What to expect, how the first visit works, and how to decide where you fit.',
+    image: '/assets/opt/hero.jpg',
+    imageAlt: 'Doctor talking with a patient',
+  },
+  {
+    href: '/resources/testimonials/',
+    eyebrow: 'Proof',
+    title: 'Testimonials',
+    text: 'Warm patient stories, trust markers, and the reasons families keep referring families.',
+    image: '/assets/opt/card-family.jpg',
+    imageAlt: 'Doctor adjusting a toddler',
+  },
+  {
+    href: '/programs/',
+    eyebrow: 'Care paths',
+    title: 'Programs',
+    text: 'Fertility, pregnancy, postpartum, and family wellness journeys built around outcomes.',
+    image: '/assets/opt/card-pregnancy.jpg',
+    imageAlt: 'Pregnancy care visit',
+  },
+  {
+    href: '/contact/',
+    eyebrow: 'Contact',
+    title: 'Call or visit',
+    text: 'Phone, address, maps, and the practical details if you would rather talk first.',
+    image: '/assets/opt/hero.jpg',
+    imageAlt: 'Doctor talking with a patient',
+  },
+];
+---
+
+<InternalLayout title="Patient Resources" description="First visit guidance, testimonials, and patient resources." current="resources">
+  <PageHero
+    eyebrow="Patient Resources"
+    title="The on-ramp before the appointment."
+    text="A quieter place to understand how care works here, what other families say, and which path might make sense for you."
+    image="/assets/opt/card-family.jpg"
+    imageAlt="Doctor adjusting a toddler"
+  />
+
+  <section class="i-section-band">
+    <div class="i-sect i-pad">
+      <SectionHeader
+        eyebrow="Find your next step"
+        title="No maze. Just the useful pages."
+        text="These pages are built for referred visitors, first-time patients, and anyone who wants to understand the practice before booking."
+        maxWidth="42em"
+      />
+      <CardGrid cards={cards} />
+    </div>
+  </section>
+</InternalLayout>
